@@ -73,6 +73,8 @@ module.exports = configure(function (/* ctx */) {
       // extendViteConf (viteConf) {},
       // viteVuePluginOptions: {},
 
+      distDir: 'docs',
+
       vitePlugins: [
         [
           '@intlify/vite-plugin-vue-i18n',
