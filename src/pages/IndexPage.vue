@@ -8,14 +8,7 @@
         src="../assets/background_home.jpg"
         style="width: 100vw; height: 100vh"
       />
-      <div
-        class="background"
-        :style="
-          widthPage > 1200
-            ? `left: calc((${widthPage} - 1200px) / 2)`
-            : `left: 0`
-        "
-      >
+      <div class="background">
         <div class="container">
           <h5>Ops, esta página ainda está em contrução</h5>
           <p>
@@ -28,22 +21,16 @@
   </q-page>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue';
-
-const widthPage = ref(window.innerWidth);
-
-window.addEventListener('resize', () => {
-  widthPage.value = window.innerWidth;
-});
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .background {
   position: absolute;
   bottom: 2rem;
   width: 100%;
-  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
@@ -58,5 +45,7 @@ window.addEventListener('resize', () => {
   gap: 2rem;
   margin: 0 1rem;
   text-align: center;
+  max-width: 1200px;
+  width: 100%;
 }
 </style>
