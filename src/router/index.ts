@@ -24,7 +24,21 @@ export default route(function (/* { store, ssrContext } */) {
 
   const Router = createRouter({
     scrollBehavior: () => ({ left: 0, top: 0 }),
-    routes,
+    routes: [
+      {
+        path: '',
+        component: () => import('layouts/MainLayout.vue'),
+        redirect: 'home',
+        children: routes,
+      },
+
+      // Always leave this as last one,
+      // but you can also remove it
+      {
+        path: '/:catchAll(.*)*',
+        component: () => import('pages/ErrorNotFound.vue'),
+      }
+    ],
 
     // Leave this as is and make changes in quasar.conf.js instead!
     // quasar.conf.js -> build -> vueRouterMode
